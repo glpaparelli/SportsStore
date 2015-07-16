@@ -11,43 +11,40 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-        <script src="js/libs/angular.js/angular.js"></script>
-        <script src="js/libs/angular.js/angular-resource.js"></script>
+        <script src="https://code.angularjs.org/1.4.3/angular.js" type="text/javascript"></script>
         <script>
-            angular.module("sportsStore",["customFilters"]);
+            angular.module("sportsStore",["customFilters", "cart", "ngRoute"])
+            .config(function ($routeProvider){
+                $routeProvider.when("/checkout", {
+                    templateUrl: "/views/checkoutSummary.html"
+                });
+                $routeProvider.when("/products",{
+                    templateUrl: "/views/productList.html"
+                });
+                $routeProvider.otherwise({
+                    templateUrl: "/views/productList.html"
+                });
+            });
         </script>
         <script src="controllers/sportsStore.js"></script>
         <script src="filters/customFilters.js"></script>
         <script src="controllers/productListControllers.js"></script>
+        <script src="components/cart/cart.js"></script>
+        <!--><script src="ngmodules/angular-route.js"></script>-->
     </head>
     <body ng-controller="sportsStoreCtrl">
         <div class="navbar navbar-inverse">
             <a class="navbar-brand" href="#">SPORTS STORE</a>
+            <cart-summary />
         </div>
-        <div class=" panel-default row" ng-controller="productListCtrl">
-            <div class="col-xs-3">
-                <a ng-click="selectCategory()"
-                   class="btn btn-block btn-default btn-lg">Home
+        <div class="alert alert-danger" ng-show="data.error">
+                Error {{data.error.status}}. The Product data was not loaded.
+                <a href="/index.html" class="alert-link">
+                    Click here to try again
                 </a>
-                <a ng-repeat="item in data.products | orderBy:'category' | unique:'category'"         
-                   ng-click="selectCategory(item)" class="btn btn-block btn-default btn-lg">
-                        {{item}}
-                </a>
-            </div>
-            <div class="col-xs-8">
-                <div class="well" ng-repeat="item in data.products
-                            | filter:categoryFilterFn" > 
-                    <h3>
-                        <strong >{{item.name}}</strong>
-                        <span class="pull-right label label-primary ng-binding">
-                            {{item.price | currency}}   
-                        </span> 
-                    </h3>
-                    <span class="lead">
-                        {{item.description}}
-                    </span>
-                </div>
-            </div>
         </div>
+        <ng-view />
+    <ng-include src="'views/productList.html'"></ng-include>
+    
     </body>
 </html>
