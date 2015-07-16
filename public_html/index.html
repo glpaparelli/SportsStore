@@ -15,14 +15,20 @@ and open the template in the editor.
         <script>
             angular.module("sportsStore",["customFilters", "cart", "ngRoute"])
             .config(function ($routeProvider){
+                $routeProvider.when("/complete", {
+                    templateUrl: "views/thankYou.html"
+                });
+                $routeProvider.when("/placeorder",{
+                    templateUrl: "views/placeOrder.html"
+                });
                 $routeProvider.when("/checkout", {
-                    templateUrl: "/views/checkoutSummary.html"
+                    templateUrl: "views/checkoutSummary.html"
                 });
                 $routeProvider.when("/products",{
-                    templateUrl: "/views/productList.html"
+                    templateUrl: "views/productList.html"
                 });
                 $routeProvider.otherwise({
-                    templateUrl: "/views/productList.html"
+                    templateUrl: "views/productList.html"
                 });
             });
         </script>
@@ -30,6 +36,8 @@ and open the template in the editor.
         <script src="filters/customFilters.js"></script>
         <script src="controllers/productListControllers.js"></script>
         <script src="components/cart/cart.js"></script>
+        <script src="controllers/checkoutControllers.js"></script>
+            
         <!--><script src="ngmodules/angular-route.js"></script>-->
     </head>
     <body ng-controller="sportsStoreCtrl">
@@ -43,8 +51,6 @@ and open the template in the editor.
                     Click here to try again
                 </a>
         </div>
-        <ng-view />
-    <ng-include src="'views/productList.html'"></ng-include>
-    
+        <ng-view />    
     </body>
 </html>

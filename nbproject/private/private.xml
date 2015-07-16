@@ -5,9 +5,12 @@
         <group>
             <file>file:/C:/Users/giulio/Documents/NetBeansProjects/SportsStore/public_html/controllers/sportsStore.js</file>
             <file>file:/C:/Users/giulio/Documents/NetBeansProjects/SportsStore/public_html/views/checkoutSummary.html</file>
+            <file>file:/C:/Users/giulio/Documents/NetBeansProjects/SportsStore/public_html/components/cart/cartSummary.html</file>
             <file>file:/C:/Users/giulio/Documents/NetBeansProjects/SportsStore/public_html/controllers/productListControllers.js</file>
+            <file>file:/C:/Users/giulio/Documents/NetBeansProjects/SportsStore/public_html/controllers/checkoutControllers.js</file>
             <file>file:/C:/Users/giulio/Documents/NetBeansProjects/SportsStore/public_html/index.html</file>
             <file>file:/C:/Users/giulio/Documents/NetBeansProjects/SportsStore/public_html/filters/customFilters.js</file>
+            <file>file:/C:/Users/giulio/Documents/NetBeansProjects/SportsStore/public_html/views/productList.html</file>
         </group>
     </open-files>
 </project-private>
