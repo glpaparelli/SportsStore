@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<div class="alert alert-danger" ng-show="data.orderError">
+    ERROR({{data.orderError.status}}). The order can't be placed.
+    <a href="#/placeOrder" class="alert-link">Click here to re try </a>
+</div>
+<div class="well" ng-hide="data.orderError">
+    <h2>Thanks!</h2>
+    Thanks for placing your order, we will ship your stuff as soon as possible
+    If you need to contact us, use reference {{data.orderId}}.
+    
+    
+</div>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<div class="well" ng-controller="authCtrl">
+    <div class="alert alert-info" ng-hide="authenticationError">
+        enter your username and password and click log to authenticate
+    </div>
+    <div class="alert alert-danger" ng-show="authenticationError">
+        authentication failed ({{authenticationError.status}}). try again
+    </div>
+    <form name="authForm" novalidate>
+        <div class="form-group">
+            <label>Username</label>
+            <input name="username" class="form-controll" ng-model="username" required>
+        </div>    
+        <div class="form-group">
+            <label>Password</label>
+            <input name="password" type="password" class="form-controll"
+                   ng-model="password" required/>
+        </div>
+        <div class="text-center">
+            <button ng-click="authenticate(username,password)"
+                    ng-disabled="authForm.$invalid"
+                    class="btn btn-primary">
+            Log In
+            </button>
+        </div>
+    </form>
+</div>
